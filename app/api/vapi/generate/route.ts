@@ -37,12 +37,11 @@ export async function POST(request: Request) {
             createdAt: new Date().toISOString(),
         };
 
-        console.log("Entrevista gerada:", interview);
 
         await db.collection("interviews").add(interview);
 
         const response = { success: true };
-        console.log("Resposta da API:", response);
+        
         return Response.json(response, { status: 200 });
 
     } catch (error) {
