@@ -104,9 +104,6 @@ const Feedback = async ({ params }: RouteParams) => {
             href={`/interview/${id}`}
             className="flex w-full justify-center"
           >
-            <p className="text-sm font-semibold text-black text-center">
-              Refazer a Entrevista
-            </p>
           </Link>
         </Button>
       </div>
