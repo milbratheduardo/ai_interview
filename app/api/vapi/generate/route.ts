@@ -8,7 +8,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-    const { type, role, level, techstack, amount, userId } = await request.json();
+    const { type, role, level, techstack, amount, userid } = await request.json();
 
     try {
         const { text: questions } = await generateText({
@@ -26,22 +26,27 @@ export async function POST(request: Request) {
         });
 
         const interview = {
-            role, type, level, techstack: techstack.split(','),
+            role: role,
+            type: type,
+            level: level,
+            techstack: techstack.split(","),
             questions: JSON.parse(questions),
-            userId: userId,
+            userId: userid,
             finalized: true,
             coverImage: getRandomInterviewCover(),
-            createdAt: new Date().toISOString()
-        }
+            createdAt: new Date().toISOString(),
+        };
+
+        console.log("Entrevista gerada:", interview);
 
         await db.collection("interviews").add(interview);
 
-        return Response.json({ success: true }, {status: 200})
+        const response = { success: true };
+        console.log("Resposta da API:", response);
+        return Response.json(response, { status: 200 });
 
     } catch (error) {
-        console.error(error);
-
-        return Response.json({ success: false, error}, {status: 500});
-
+        console.error("Erro ao gerar entrevista:", error);
+        return Response.json({ success: false, error }, { status: 500 });
     }
 }
