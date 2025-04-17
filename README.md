@@ -21,7 +21,7 @@
 ## 💻 Como rodar localmente
 
 1. Clone o repositório
-2. Baixe o arquivo .env.local através do link abaixo (a senha é a sigla da universidade em minúsculo):
+2. Baixe o arquivo .env.local através do link abaixo (a senha é a sigla da universidade em minúsculo): "https://drive.google.com/file/d/1_fHbDTIkso0noge2aucG7U0JR95orDdt/view?usp=sharing"
 3. Instale as dependências: ``npm install``
 4. Execute: ``npm run dev``
 
